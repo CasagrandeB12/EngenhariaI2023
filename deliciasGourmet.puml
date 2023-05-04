@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor Aluno as c
+package Profissional {
+  actor Joao as jo
+  actor Maria as ma
+  actor Pedro as pe
+  actor Ana as an
+  actor Carlos as sa
+}
+package  Universidade{
+  usecase "Aprovado" as UC1
+  usecase "Pagar" as UC2
+  usecase "Estudar" as UC3
+  usecase "Analisar estudo" as UC4
+  (UC1) .> (UC2) : include
+  (UC3) .> (UC2) : <<extends>>
+}
+sa -- UC4
+c -- UC1
+c -- UC2
+c -- UC3
+@enduml
